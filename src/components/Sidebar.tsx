@@ -11,6 +11,7 @@ import MicIcon from "../assets/images/mic-icon.png";
 import LanguageIcon from "../assets/images/langauge-icon.png";
 import {useKindeBrowserClient} from "@kinde-oss/kinde-auth-nextjs";
 import ProfilePic from "../assets/images/profile-pic.png";
+import {LogoutLink} from "@kinde-oss/kinde-auth-nextjs/components";
 
 export default function Sidebar({
   children,
@@ -83,7 +84,7 @@ export default function Sidebar({
               <h4 className="font-semibold">{user?.given_name + " " + user?.family_name}</h4>
               <span className="text-xs text-gray-600">{user?.email}</span>
             </div>
-            <MoreVertical size={20} />
+            <LogoutLink><MoreVertical size={20} /></LogoutLink>
           </div>
         </div>
       </nav>

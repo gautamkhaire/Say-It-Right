@@ -4,17 +4,17 @@ import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { useEffect, useState } from "react";
 
 function Statistics() {
-  const {user} = useKindeBrowserClient();
+  const {user}:any = useKindeBrowserClient();
   
   const [barChartData,setBarChartData] = useState({});
   const [pieChartData,setPieChartData] = useState({});
 
   useEffect(()=>{
     const formData = new FormData();
-    formData.append("user_id","1001");
+    formData.append("user_id","kp_ea4a307e22b54cdd8f06a3b4f514d334");
 
     // API CALL
-    fetch("https://73cd-103-97-166-170.ngrok-free.app/statistics", {
+    fetch("https://8e2f-116-75-11-103.ngrok-free.app/statistics", {
       method: "POST",
       body: formData,
     })

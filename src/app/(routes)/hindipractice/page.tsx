@@ -1,18 +1,19 @@
 "use client"
 
-import { Tabs } from "../ui/tabs";
-import AudioRecorder from "../AudioRecorder.jsx";
+import React from 'react'
+import { Tabs } from "../../../components/ui/tabs";
+import Image from 'next/image';
+import AudioRecorderMarathi from "../../../components/AudioRecorderHindi";
 import { useState } from "react";
 import { FaCircleArrowRight, FaCircleArrowLeft } from "react-icons/fa6";
-import { HiSpeakerWave } from "react-icons/hi2";
-import { Button } from "../ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import DifferentLanguage from "@/assets/images/differentLanguages.png";
 
-export default function Practice() {
+export default function MarathiPractice() {
   const tabs = [
     {
-      title: "Words",
-      value: "Words",
+      title: "शब्द",
+      value: "शब्द",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-tl from-cyan-300 to-indigo-400">
           <p className="text-center text-white font-semibold">Words</p>
@@ -21,8 +22,8 @@ export default function Practice() {
       ),
     },
     {
-      title: "Sentences",
-      value: "Sentences",
+      title: "वाक्य",
+      value: "वाक्य",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-tl from-cyan-300 to-indigo-400">
           <p className="text-center text-white font-semibold">Sentences</p>
@@ -31,8 +32,8 @@ export default function Practice() {
       ),
     },
     {
-      title: "Paragraphs",
-      value: "Paragraphs",
+      title: "अनुच्छेद",
+      value: "अनुच्छेद",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-tl from-cyan-300 to-indigo-400">
           <p className="text-center text-white font-semibold">Paragraphs</p>
@@ -41,8 +42,8 @@ export default function Practice() {
       ),
     },
     {
-      title: "Content",
-      value: "content",
+      title: "सामग्री",
+      value: "सामग्री",
       content: (
         <div className="w-full overflow-hidden relative h-full rounded-2xl p-10 text-xl md:text-4xl font-bold text-white bg-gradient-to-tl from-cyan-300 to-indigo-400">
           <p className="text-center text-white font-semibold">Content</p>
@@ -53,25 +54,20 @@ export default function Practice() {
   ];
 
   return (
-    <div className="h-screen w-full p-4 relative flex flex-col mx-20 items-start justify-start">
-      <Tabs tabs={tabs} />
+    <div className="h-screen w-full p-4 relative flex flex-row items-start justify-around">
+    <div>
+        <Image src={DifferentLanguage} alt="Different Languages" width={350} height={350} className='mt-32'/>
+        <p className='text-5xl text-green-500 font-extrabold text-center'>हिंदी </p>
+        <p className='text-2xl text-gray-600 font-bold text-center'>(Hindi)</p>
+        </div>
+    <div className='w-3/4'><Tabs tabs={tabs} /></div>
+      
     </div>
   );
 }
 
-const handleVoice = async (text: any) => {
-  const msg = new SpeechSynthesisUtterance();
-
-  const speechHandler = (msg: any) => {
-    msg.text = text;
-    window.speechSynthesis.speak(msg);
-  };
-
-  speechHandler(msg);
-};
-
 const WordsContent = () => {
-  const words = ["Communication", "Strengths", "Laugh", "Shipping", "Through",];
+  const words = ["साथ", "पत्ता ", "बारिश ", "खाना ", "गाड़ी"];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextWord = () => {
@@ -95,10 +91,7 @@ const WordsContent = () => {
           </button>
           <div className="text-[60px] font-bold text-white my-12 ">
             <div className="flex flex-row items-center justify-between gap-2">
-              {words[currentIndex]}{" "}
-              <Button onClick={() => handleVoice(words[currentIndex])}>
-                <HiSpeakerWave size={38} />
-              </Button>
+              {words[currentIndex]}
             </div>
           </div>
           <button onClick={nextWord}>
@@ -107,19 +100,13 @@ const WordsContent = () => {
         </div>
       </div>
 
-      <AudioRecorder text={words[currentIndex]} lesson_id={1} />
+      <AudioRecorderMarathi text={words[currentIndex]} lesson_id={1} />
     </div>
   );
 };
 
 const SentencesContent = () => {
-  const sentences = [
-    "The cat sat on the mat",
-    "I like to eat apples",
-    "She runs fast in the park",
-    "The big black dog barks loudly",
-    "We went to the beach on a sunny day",
-  ];
+  const sentences = ["बच्चे खेलते हैं पार्क में।","उसके पास बड़ा घर है।","वहाँ पर सब्ज़ी मार्केट है।","मेरे पास एक किताब है।","सुबह आलू पराठे का नाश्ता है। "];
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const nextSentence = () => {
@@ -142,10 +129,7 @@ const SentencesContent = () => {
           </button>
           <div className="text-[45px] font-bold text-white my-12 ">
             <div className="flex flex-row items-center justify-between gap-2">
-              {sentences[currentIndex]}{" "}
-              <Button onClick={() => handleVoice(sentences[currentIndex])}>
-                <HiSpeakerWave size={38} />
-              </Button>
+              {sentences[currentIndex]}
             </div>
           </div>
           <button onClick={nextSentence}>
@@ -154,18 +138,18 @@ const SentencesContent = () => {
         </div>
       </div>
 
-      <AudioRecorder text={sentences[currentIndex]} lesson_id={2} />
+      <AudioRecorderMarathi text={sentences[currentIndex]} lesson_id={2} />
     </div>
   );
 };
 
 const ParagraphsContent = () => {
   const paragraphs = [
-    "The quick brown fox jumps over the lazy dog. They play in the park every Saturday afternoon.",
-    "I sell books on the beach. He reads books about ancient history.",
-    "My sister sings beautifully in the choir. We have a picnic by the river every summer.",
-    "The tall man with a deep voice spoke softly. The children laugh happily at the funny clown.",
-    "I love to travel to exotic places. The train chugs along the tracks towards the mountains.",
+    "राम ने रसोई में रोटी पकाई। रोटी रंगीन हो गई थी।",
+"सोनिया ने सरकारी स्कूल में सुंदर छायाचित्र बनाया। सुंदरता में वह नंबर एक थी।",
+"गायिका ने गीत सुनाया। गीत सुनकर सभी नचने लगे।",
+"धरती पर धर्म बहुत महत्वपूर्ण है। धर्म के बिना जीवन अधूरा है।",
+"काव्य कविता को सजाया। सजीवता के लिए उसका अहम योगदान था।",
   ];
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -189,10 +173,7 @@ const ParagraphsContent = () => {
           </button>
           <div className="text-[35px] font-bold text-white my-6 ">
             <div className="flex flex-row items-center justify-between gap-2">
-              {paragraphs[currentIndex]}{" "}
-              <Button onClick={() => handleVoice(paragraphs[currentIndex])}>
-                <HiSpeakerWave size={38} />
-              </Button>
+              {paragraphs[currentIndex]}
             </div>
           </div>
           <button onClick={nextParagraph}>
@@ -201,7 +182,7 @@ const ParagraphsContent = () => {
         </div>
       </div>
 
-      <AudioRecorder text={paragraphs[currentIndex]} lesson_id={3} />
+      <AudioRecorderMarathi text={paragraphs[currentIndex]} lesson_id={3} />
     </div>
   );
 };
@@ -217,15 +198,12 @@ const UserInputContent = () => {
           rows={3}
           onChange={(e: any) => setText(e.target.value)}
         />
-        <Button onClick={() => handleVoice(text)} className="-mt-20">
-          <HiSpeakerWave size={38} />
-        </Button>
       </div>
 
       <div className="font-normal text-white/90 text-2xl my-6">
         Pronounce the above typed content{" "}
       </div>
-      <AudioRecorder text={text} lesson_id={4} />
+      <AudioRecorderMarathi text={text} lesson_id={4} />
     </div>
   );
 };

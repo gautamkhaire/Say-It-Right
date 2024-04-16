@@ -1,19 +1,16 @@
 "use client";
 
-import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 import { Payment, columns } from "./columns";
 import { DataTable } from "./data-table";
 import {useState,useEffect} from "react";
 
-export default function DemoPage() {
+export default function DemoPage({user_id}:any) {
     const [data,setData] = useState([]);
-    const {user}:any = useKindeBrowserClient();
 
     useEffect(()=>{
         const formData = new FormData();
-        formData.append("user_id",user?.id);
-        console.log(formData);
-        fetch("https://73cd-103-97-166-170.ngrok-free.app/dashboard", {
+        formData.append("user_id","kp_eeae8228fa484dd28c0bf9293a30a56d");
+        fetch("https://a978-115-248-146-117.ngrok-free.app/dashboard", {
         method: "POST",
         body: formData,
         })

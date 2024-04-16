@@ -12,7 +12,6 @@ import { Button } from "./ui/button";
 import { useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
 
 import { ClipboardMinus } from "lucide-react";
-import { toast } from "sonner";
 
 import {
   Dialog,
@@ -33,10 +32,6 @@ const AudioRecorder = ({ text, lesson_id }) => {
   const { user } = useKindeBrowserClient();
   const [activityResult, setActivityResult] = useState({
     match_score: "",
-    fluency_score: "",
-    intonation_score: "",
-    speed: "",
-    mispronounced_words: [],
   });
   const [isEnabled, setIsEnabled] = useState(false);
 
@@ -93,13 +88,9 @@ const AudioRecorder = ({ text, lesson_id }) => {
 
     formData.append("audio", audioBlob);
     formData.append("text", text);
-    formData.append("lesson_code", lesson_id);
-    formData.append("user_id", user.id);
-    formData.append("user_name", `${user.given_name} ${user.family_name}`);
-    formData.append("user_email", user.email);
-
+    console.log("Marathi")
     // API CALL
-    fetch("https://8e2f-116-75-11-103.ngrok-free.app/text_check", {
+    fetch("https://8e2f-116-75-11-103.ngrok-free.app/check_marathi", {
       method: "POST",
       body: formData,
     })
@@ -113,25 +104,6 @@ const AudioRecorder = ({ text, lesson_id }) => {
       .catch((error) => {
         console.error("Error:", error);
         setAudioChunks([]);
-      });
-  };
-
-  const handleGenerate = () => {
-    const formData = new FormData();
-    formData.append("user_id", user.id);
-
-    fetch("https://8e2f-116-75-11-103.ngrok-free.app/generate_report", {
-      method: "POST",
-      body: formData,
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("Success:", result);
-        setIsEnabled(true);
-        toast("Report generation successful. Go to dashboard");
-      })
-      .catch((error) => {
-        console.error("Error:", error);
       });
   };
 
@@ -219,88 +191,14 @@ const AudioRecorder = ({ text, lesson_id }) => {
                             Explanation
                           </a>
                         </div>
-
-                        <div className="text-gray-500 font-semibold text-xl flex flex-row items-center justify-between">
-                          <p>
-                            Fluency Score:{" "}
-                            <span className="text-2xl text-blue-500 font-bold">
-                              {parseFloat(activityResult.fluency_score).toFixed(
-                                2
-                              )}
-                            </span>
-                          </p>
-                          <a
-                              href="https://elearningindustry.com/how-improve-fluency-in-english"
-                              target="_blank"
-                              className="text-md text-blue-500 hover:underline"
-                            >
-                              Explanation
-                            </a>
-                        </div>
-
-                        <div className="text-gray-500 font-semibold text-xl flex flex-row items-center justify-between">
-                        <p>
-                          Intonation Score:{" "}
-                          <span className="text-2xl text-blue-500 font-bold">
-                            {parseFloat(
-                              activityResult.intonation_score
-                            ).toFixed(2)}
-                          </span>
-                          </p>
-                          <a
-                              href="https://www.britishcouncil.org/voices-magazine/how-english-learners-can-improve-intonation"
-                              target="_blank"
-                              className="text-md text-blue-500 hover:underline"
-                            >
-                              Explanation
-                            </a>
-                        </div>
-
-                        <div className="text-gray-500 font-semibold text-xl flex flex-row items-center justify-between">
-                        <p>
-                          Speed:{" "}
-                          <span className="text-2xl text-blue-500 font-bold">
-                            {parseFloat(activityResult.speed).toFixed(2)}
-                          </span>{" "}
-                          words/minute
-                          </p>
-                          <a
-                              href="https://virtualspeech.com/blog/average-speaking-rate-words-per-minute#:~:text=Try%20to%20vary%20your%20speaking%20rate&text=Varying%20your%20speech%20makes%20it,to%20reflect%20sadness%20or%20importance"
-                              target="_blank"
-                              className="text-md text-blue-500 hover:underline"
-                            >
-                              Explanation
-                            </a>
-                        </div>
                       </div>
                     )}
-                    {activityResult && (
-                      <p className="text-gray-500 font-semibold text-xl mt-2 mb-1">
-                        Mispronounced words:{" "}
-                      </p>
-                    )}
-                    {activityResult &&
-                      activityResult.mispronounced_words.map((value, index) => (
-                        <span
-                          key={index}
-                          className="text-2xl text-red-500 font-semibold"
-                        >
-                          {value},{" "}
-                        </span>
-                      ))}
+                    
                   </DialogDescription>
                 </DialogHeader>
               </DialogContent>
             </Dialog>
             <ClipboardMinus />
-          </Button>
-
-          <Button
-            className="bg-blue-500 rounded-full hover:scale-105 hover:bg-blue-600 text-2xl gap-2 font-semibold"
-            disabled={!isEnabled}
-            onClick={handleGenerate}
-          >
-            Generate report
           </Button>
         </div>
       )}

@@ -3,7 +3,6 @@ import Dictionary from "../assets/images/Dictionary.png";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import DictionaryIcon from "../assets/icons/icons-dictionary.png";
-import { Button } from "./ui/button";
 import Link from "next/link";
 import { FaArrowRightLong } from "react-icons/fa6";
 
@@ -66,7 +65,8 @@ function DictionaryBanner() {
         </p>
         <div className="mt-5 flex items-center justify-center">
         <Link
-          href="#dictionaryurl"
+          href="/dictionary"
+          target="_blank"
           className="h-12 w-36 font-semibold text-md group bg-purple-500 text-white px-7 py-3 flex items-center gap-2 rounded-full outline-none focus:scale-110 hover:scale-110 hover:bg-purple-600 transition"
         >
           Explore{" "}
