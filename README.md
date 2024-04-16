@@ -26,8 +26,7 @@ The solution follows the given innovative elements to be used in the methodology
 ![Practice-Sentences](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/33eec5a1-41cd-4d55-a3eb-62ceade911ef)
 ![Practice-Sentences-Result](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/51c7dc7d-27c3-49c9-bc19-5e1bf068ad85)
 ![Practice-Paragraphs](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/f12e66d0-4fdd-42cf-b1ba-d5c3b6cf987b)
-![Marathi-Practice-Pragraphs](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/753b6d05-f7e8-480a-a04a-dabe97335732)
-![Hindi-Practice-Paragraphs](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/4d005d22-307e-4acd-9fd8-93c8e05daec2)
 ![Dashboard](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/8f538ca5-f459-4ec1-aafd-b395959e9ea8)
 ![Statistics](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/9bb542d5-1fb5-4061-9eaa-347a7f7650a2)
-
+![Marathi-Practice-Pragraphs](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/753b6d05-f7e8-480a-a04a-dabe97335732)
+![Hindi-Practice-Paragraphs](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/4d005d22-307e-4acd-9fd8-93c8e05daec2)
