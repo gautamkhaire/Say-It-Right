@@ -1,5 +1,5 @@
-## Say It Right!
-Say It Right! is a comprehensive language learning platform. Improve your **Speaking and Pronounication** skills using our platform.
+## Say-It-Right!
+Say-It-Right! is a comprehensive language learning platform. Improve your **Speaking and Pronounication** skills using our platform.
 
 💡 TECHFIESTA - An International Hackathon: Problem Statement: 3003 Language Learning Support - "Build a system that assists language learners in improving their speaking and pronunciation skills."
 
@@ -19,6 +19,7 @@ The solution follows the given innovative elements to be used in the methodology
 
 7. **Word Metadata Access**: Users gain access to metadata of words, including meaning, audio, example sentences, and part of speech, providing additional insights
 
+## Screenshots of Say-It-Right! website:
 ![Hero Banner](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/486452b2-e5ac-4b2a-950d-d62915c06826)
 ![Steps Guide](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/d8ae79e5-196a-4414-9ba3-24cd49109026)
 ![Dictionary Banner](https://github.com/gautamkhaire/Say-It-Right/assets/85440675/043f6970-6992-45c8-ada2-4b779e70b7dd)
