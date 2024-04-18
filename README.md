@@ -1,5 +1,5 @@
 ## Say-It-Right!
-Say-It-Right! is a comprehensive language learning platform. Improve your **Speaking and Pronounication** skills using our platform.
+Say-It-Right! is a comprehensive language learning platform. Improve your **Speaking and Pronounciation** skills using our platform.
 
 💡 TECHFIESTA - An International Hackathon: Problem Statement: 3003 Language Learning Support - "Build a system that assists language learners in improving their speaking and pronunciation skills."
 
